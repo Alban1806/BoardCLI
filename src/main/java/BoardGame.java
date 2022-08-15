@@ -10,7 +10,7 @@ public class BoardGame implements Callable<Integer> {
 
     // Run CLI
     public static void main(String[] args) {
-        int exitStatus = new CommandLine(new BoardGame()).execute("1", "-o=1");
+        int exitStatus = new CommandLine(new BoardGame()).execute(args);
         System.exit(exitStatus);
     }
 
