@@ -1,9 +1,13 @@
 import java.util.*;
 
 import java.util.concurrent.Callable;
+import java.util.concurrent.TimeUnit;
 import picocli.CommandLine;
 import picocli.CommandLine.Option;
 import picocli.CommandLine.Parameters;
+
+
+// Notes:   Add a timer of 30 seconds per turn for each player.
 
 @CommandLine.Command(name = "Al's Board Game", mixinStandardHelpOptions = true)
 public class BoardGame implements Callable<Integer> {
@@ -132,6 +136,7 @@ public class BoardGame implements Callable<Integer> {
                 // CPU/Player 2 move.
                 if (opponent == 1) {
                     System.out.println("\nCPU Turn: " + possibleMoves.toString());
+                    TimeUnit.SECONDS.sleep(2);
                     p2Input = possibleMoves.get(cpuSelect.nextInt(0,possibleMoves.size())).toUpperCase();
                 }
                 else {
